@@ -1,18 +1,15 @@
-import React, { Children, ReactElement } from 'react';
-import { Header } from '.';
+import React, { Children, ReactElement } from 'react'
+import { Header } from '.'
 
-function Layout({children}:{ children: ReactElement}) {
-  return <>
-  
-    <div className='container h-screen mx-auto '>
-    <Header/>
-    <div className='container bg-white pt-10  bg-post'>
-    {children}
-    </div>
-
-    </div>
-
-</>;
+function Layout({ children }: { children: ReactElement }) {
+  return (
+    <>
+      <div className="container mx-auto h-screen ">
+        <Header />
+        <div className="container bg-white bg-post  pt-10">{children}</div>
+      </div>
+    </>
+  )
 }
 
-export default Layout;
+export default Layout

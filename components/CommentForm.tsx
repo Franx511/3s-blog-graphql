@@ -15,8 +15,10 @@ const CommentForm = ({ slug }: any) => {
 
 
   useEffect(() => {
-    nameEl.current.value = window.localStorage.getItem('name')!;
-    emailEl.current.value = window.localStorage.getItem('email')!;
+    if (nameEl.current && emailEl.current) {
+      nameEl.current.value = window.localStorage.getItem('name')!;
+      emailEl.current.value = window.localStorage.getItem('email')!;
+    }
   }, []);
   const onInputChange = (e: any) => {
     const { target } = e;
@@ -59,6 +61,7 @@ const CommentForm = ({ slug }: any) => {
     submitComment(commentObj).then((res) => {
       setShowSuccessMessage(true);
       setTimeout(() => {
+        if(commentEl.current)
         commentEl.current.value = '';
         setShowSuccessMessage(false);
       }, 2500)
